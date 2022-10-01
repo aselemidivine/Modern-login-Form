@@ -1,0 +1,113 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0;
+}
+
+/* Declaring all our CSS vcariables below */
+:root {
+    --primary-light-hsl-col: 200, 100%, 80%;
+    --primary-light: 200, 100%, 50%;
+    --primary-dark-hsl-col: 100, 100%, 6%;
+    --success-hsl-col: 100, 60%, 50%;
+    --error-hsl-col: 0, 60%, 50%;
+}
+
+.full-screen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: hsl(var(--primary-light-hsl-col), .6);
+}
+.login-title {
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.login-container {
+    --color: hsl(var(--primary-dark-hsl-col), .7);
+    background-color: var(--color);
+    box-shadow: 0 0 15px 0 var(--color);   /* Adds a little bit of fuzziness to the corners of the form*/
+    padding: 40px 30px;
+    width: 80%;
+    max-width: 600px; /* will never be more than 600px wide*/
+    border-radius: 20px;
+}
+.form {
+    display: flex;
+    flex-direction: column; /* this stacks everything vertically*/
+    color: white;
+    gap: 23px;
+    margin-top: 40px;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;  /* Space of 7px between each one */
+}
+.input-group label {
+    color: white;
+    font-weight: lighter;
+}
+.input-group input {
+    font-size: 1.25rem;
+    padding: .5em;
+    background-color: hsl(var(--primary-light-hsl-col), .3);
+    border: none;
+    outline: none;
+    border-radius: .25rem;
+    color: white;
+    font-weight: lighter;
+}
+.input-group.success input {
+    box-shadow: 0 0 0 2px hsl(var(--success-hsl-col));
+
+}
+.input-group.error input {
+    box-shadow: 0 0 0 2px hsl(var(--error-hsl-col));
+
+}
+.input-group input:focus {
+    box-shadow: 0 0 0 2px hsl(var(--primary-light-hsl-col));
+}
+.input-group .msg {
+    display: none;
+    font-size: .75rem;
+}
+.input-group.success .msg,
+.input-group.error .msg {
+    display: block;
+}
+
+
+.input-group.error .msg {
+    color: hsl(var(--error-hsl-col));
+}
+
+.input-group.success .msg {
+    color: hsl(var(--success-hsl-col));
+}
+
+.login-button {
+    padding: .5rem 1em;
+    font-size: 1.5rem;
+    border-radius: .30em;
+    font-weight: lighter;
+    border: 1px solid hsl(var(--primary-light));
+    color: white;
+    background-color: hsl(var(--primary-light), .25);
+    outline: none;
+    cursor: pointer;
+}
+
+.login-button:hover,
+.login-button:focus {
+    background-color: hsl(var(--primary-light), .4);
+}
